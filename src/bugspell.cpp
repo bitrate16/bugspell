@@ -68,14 +68,35 @@ std::wstring deconvert_pj(const std::wstring& s) {
 		else if (ch2 == CH_4) /* { */ resc |= 0b100000; /* std::wcout << "10"; } */
 		
 		wchar_t c = 0;
-		if (resc == 34)
-			c = ' ';
-		else if (resc == 35)
-			c == '.';
-		else if (resc == 36)
-			c == ',';
-		else if (resc < 33)
-			c = (wchar_t) resc + L'а';
+		     if (resc == 34) c = L' ';
+		else if (resc == 35) c = L'.';
+		else if (resc == 36) c = L',';
+		else if (resc == 37) c = L'?';
+		else if (resc == 38) c = L'!';
+		else if (resc == 39) c = L'+';
+		else if (resc == 40) c = L'=';
+		else if (resc == 41) c = L'-';
+		else if (resc == 42) c = L'_';
+		else if (resc == 43) c = L')';
+		else if (resc == 44) c = L'(';
+		else if (resc == 45) c = L'[';
+		else if (resc == 46) c = L']';
+		else if (resc == 47) c = L'{';
+		else if (resc == 48) c = L'}';
+		else if (resc == 49) c = L'<';
+		else if (resc == 50) c = L'>';
+		else if (resc == 51) c = L'0';
+		else if (resc == 52) c = L'1';
+		else if (resc == 53) c = L'2';
+		else if (resc == 54) c = L'3';
+		else if (resc == 55) c = L'4';
+		else if (resc == 56) c = L'5';
+		else if (resc == 57) c = L'6';
+		else if (resc == 58) c = L'7';
+		else if (resc == 59) c = L'8';
+		else if (resc == 60) c = L'9';
+		else if (resc == 61) c = L'~';
+		else if (resc < 33)  c = (wchar_t) resc + L'а';
 		
 		out += c;
 		// std :: wcout << " '" << c << "'" << std::endl;
@@ -99,12 +120,34 @@ std::wstring convert_pj(const std::wstring& s) {
 	for (int i = 0; i < s.size(); ++i) {
 		int charnum;
 		// std::wcout << std::endl << "'" << s[i] << "'";
-		if (s[i] == L' ')
-			charnum = 34;
-		else if (s[i] == L'.')
-			charnum = 35;
-		else if (s[i] == L',')
-			charnum = 36;
+		     if (s[i] == L' ') charnum = 34;
+		else if (s[i] == L'.') charnum = 35;
+		else if (s[i] == L',') charnum = 36;
+		else if (s[i] == L'?') charnum = 37;
+		else if (s[i] == L'!') charnum = 38;
+		else if (s[i] == L'+') charnum = 39;
+		else if (s[i] == L'=') charnum = 40;
+		else if (s[i] == L'-') charnum = 41;
+		else if (s[i] == L'_') charnum = 42;
+		else if (s[i] == L')') charnum = 43;
+		else if (s[i] == L'(') charnum = 44;
+		else if (s[i] == L'[') charnum = 45;
+		else if (s[i] == L']') charnum = 46;
+		else if (s[i] == L'{') charnum = 47;
+		else if (s[i] == L'}') charnum = 48;
+		else if (s[i] == L'<') charnum = 49;
+		else if (s[i] == L'>') charnum = 50;
+		else if (s[i] == L'0') charnum = 51;
+		else if (s[i] == L'1') charnum = 52;
+		else if (s[i] == L'2') charnum = 53;
+		else if (s[i] == L'3') charnum = 54;
+		else if (s[i] == L'4') charnum = 55;
+		else if (s[i] == L'5') charnum = 56;
+		else if (s[i] == L'6') charnum = 57;
+		else if (s[i] == L'7') charnum = 58;
+		else if (s[i] == L'8') charnum = 59;
+		else if (s[i] == L'9') charnum = 60;
+		else if (s[i] == L'~') charnum = 61;
 		else if (L'а' <= s[i] && s[i] <= L'я')
 			charnum = s[i] - L'а';
 		else if (L'А' <= s[i] && s[i] <= L'Я')
@@ -149,7 +192,7 @@ std::wstring convert_pj(const std::wstring& s) {
 	return out;
 };
 
-// bash c.sh "" src/bugspell "фывфыаыфв"
+// bash c.sh "" src/bugspell
 
 // Отображает русский текст (с пробелами, всеми буквами) в последовательность 
 //  ВжВжЖ (по правилу из функции, делит рандомными пробелами.
