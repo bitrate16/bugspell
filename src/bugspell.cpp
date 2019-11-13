@@ -96,6 +96,8 @@ std::wstring deconvert_pj(const std::wstring& s) {
 		else if (resc == 59) c = L'8';
 		else if (resc == 60) c = L'9';
 		else if (resc == 61) c = L'~';
+		else if (resc == 62) c = L':';
+		else if (resc == 63) c = L';';
 		else if (resc < 33)  c = (wchar_t) resc + L'а';
 		
 		out += c;
@@ -148,6 +150,8 @@ std::wstring convert_pj(const std::wstring& s) {
 		else if (s[i] == L'8') charnum = 59;
 		else if (s[i] == L'9') charnum = 60;
 		else if (s[i] == L'~') charnum = 61;
+		else if (s[i] == L':') charnum = 62;
+		else if (s[i] == L';') charnum = 63;
 		else if (L'а' <= s[i] && s[i] <= L'я')
 			charnum = s[i] - L'а';
 		else if (L'А' <= s[i] && s[i] <= L'Я')
